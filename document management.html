@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0.8) 100%), url('path/to/your/background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff; /* Set text color to white for better visibility on the background */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h1>Document Management</h1>
+
+        <!-- Upload Document Form -->
+        <form id="documentForm">
+            <div class="form-group">
+                <label for="documentName">Document Name:</label>
+                <input type="text" class="form-control" id="documentName" required>
+            </div>
+            <div class="form-group">
+                <label for="documentFile">Upload Document:</label>
+                <input type="file" class="form-control-file" id="documentFile" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Document</button>
+        </form>
+
+        <!-- Document List -->
+        <div class="mt-4">
+            <h2>Document List</h2>
+            <ul id="documentList" class="list-group">
+                <!-- Document items will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for document management functionality
+        document.getElementById('documentForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get values from the form
+            var documentName = document.getElementById('documentName').value;
+            var documentFile = document.getElementById('documentFile').value;
+
+            // Add the document to the list
+            var documentList = document.getElementById('documentList');
+            var listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.innerHTML = '<strong>' + documentName + '</strong> - <a href="' + documentFile + '" target="_blank">View Document</a>';
+            documentList.appendChild(listItem);
+
+            // Clear the form fields
+            document.getElementById('documentName').value = '';
+            document.getElementById('documentFile').value = '';
+        });
+    </script>
+</body>
+</html>

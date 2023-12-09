@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLR Institute of Technology - Student Details</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('https://kiit.ac.in/wp-content/uploads/2023/02/Placement-2023.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 5px 0;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #555;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Display area styling */
+        #displayDetails {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Edit and Delete options styling */
+        .options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .options a {
+            text-decoration: none;
+            color: white;
+            padding: 8px;
+            border: 1px solid white;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        var editing = false;
+
+        function submitStudentDetails() {
+            // Get values from the form
+            var studentName = document.getElementById("studentName").value;
+            var studentID = document.getElementById("studentID").value;
+            var yearAndBranch = document.getElementById("yearAndBranch").value;
+            var cgpa = document.getElementById("cgpa").value;
+            var skillsLearned = document.getElementById("skillsLearned").value;
+
+            if (!editing) {
+                // Display entered details
+                var displayArea = document.getElementById("displayDetails");
+                displayArea.innerHTML = `
+                    <h2>Student Details</h2>
+                    <p><strong>Student Name:</strong> ${studentName}</p>
+                    <p><strong>Student ID:</strong> ${studentID}</p>
+                    <p><strong>Year and Branch:</strong> ${yearAndBranch}</p>
+                    <p><strong>CGPA:</strong> ${cgpa}</p>
+                    <p><strong>Skills Learned:</strong> ${skillsLearned}</p>
+                `;
+
+                // Display Save and Edit options
+                var optionsArea = document.getElementById("options");
+                optionsArea.innerHTML = `
+                    <div class="options">
+                        <a href="#" onclick="editStudentDetails()">Edit</a>
+                        <a href="#" onclick="confirmDelete()">Delete</a>
+                    </div>
+                `;
+            }
+
+            // Optionally, you can clear the form after submission
+            document.getElementById("studentForm").reset();
+        }
+
+        function editStudentDetails() {
+            editing = true;
+
+            // Display Edit form with existing values
+            var formArea = document.getElementById("studentForm");
+            formArea.innerHTML = `
+                <label for="studentName">Student Name:</label>
+                <input type="text" id="studentName" name="studentName" value="John Doe" required>
+
+                <label for="studentID">Student ID:</label>
+                <input type="text" id="studentID" name="studentID" value="12345" required>
+
+                <label for="yearAndBranch">Year and Branch:</label>
+                <input type="text" id="yearAndBranch" name="yearAndBranch" value="2nd Year, Computer Science" required>
+
+                <label for="cgpa">CGPA:</label>
+                <input type="text" id="cgpa" name="cgpa" value="3.8" required>
+
+                <label for="skillsLearned">Skills Learned:</label>
+                <input type="text" id="skillsLearned" name="skillsLearned" value="JavaScript, Python, Communication" required>
+
+                <button type="button" onclick="saveEditedDetails()">Save</button>
+            `;
+        }
+
+        function saveEditedDetails() {
+            editing = false;
+            submitStudentDetails();
+        }
+
+        function confirmDelete() {
+            var confirmDelete = confirm("Are you sure you want to delete this student's details?");
+            if (confirmDelete) {
+                // Implement delete logic as needed
+                alert("Student details deleted successfully!");
+                // Clear display and options after deletion
+                document.getElementById("displayDetails").innerHTML = "";
+                document.getElementById("options").innerHTML = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Student Details</h2>
+
+    <!-- Form for entering student details -->
+    <form id="studentForm">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required>
+
+        <label for="studentID">Student ID:</label>
+        <input type="text" id="studentID" name="studentID" required>
+
+        <label for="yearAndBranch">Year and Branch:</label>
+        <input type="text" id="yearAndBranch" name="yearAndBranch" required>
+
+        <label for="cgpa">CGPA:</label>
+        <input type="text" id="cgpa" name="cgpa" required>
+
+        <label for="skillsLearned">Skills Learned:</label>
+        <input type="text" id="skillsLearned" name="skillsLearned" required>
+
+        <button type="button" onclick="submitStudentDetails()">Submit</button>
+    </form>
+
+    <!-- Display area for entered student details -->
+    <div id="displayDetails"></div>
+
+    <!-- Options for Edit and Delete -->
+    <div id="options"></div>
+</body>
+</html>
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLR Institute of Technology - Placements</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?auto=compress&cs=tinysrgb&w=400');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #555;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        /* Side-by-Side Sections */
+        section {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        section > div {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid white;
+            margin: 0 10px;
+            box-sizing: border-box;
+        }
+    </style>
+    <script>
+        function navigateTo(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</head>
+<body>
+    <h1>MLR Institute of Technology - Placements</h1>
+    <p>Find your dream companies!</p>
+
+    <!-- Side-by-Side Sections -->
+    <section>
+        <div id="student-profile">
+            <h2>Student Profile</h2>
+            <!-- Add your content for Student Profile -->
+            <p>Click <a href="student.html" onclick="navigateTo('student-details')">here</a> to view Student Details</p>
+        </div>
+        <div id="companies-hiring">
+            <h2>Companies Hiring</h2>
+            <!-- Add your content for Companies Hiring -->
+            <p>Click <a href="companies.html" onclick="navigateTo('companies-details')">here</a> to view Companies Hiring</p>
+        </div>
+        <div id="coordinator-analysis">
+            <h2>Coordinator Analysis</h2>
+            <!-- Add your content for Coordinator Analysis -->
+            <p>Click <a href="coordinator analysis.html" onclick="navigateTo('coordinator-analysis')">here</a> to view coordinator analysis</p>
+        </div>
+        <div id="document-management">
+            <h2>Document Management</h2>
+            <!-- Add your content for Document Management -->
+            <p>Click <a href="document management.html" onclick="navigateTo('document-management-details')">here</a> to view document management</p>
+        </div>
+        <div id="placement-results">
+            <h2>Placement Results</h2>
+            <!-- Add your content for Placement Results -->
+            <p>Click <a href="placement results.html" onclick="navigateTo('placement-results-details')">here</a> to view Placement results</p>
+        </div>
+    </section>
+</body>
+</html>
